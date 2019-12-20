@@ -29,23 +29,33 @@
         border-radius: 10px; 
         padding: 5px 5px; 
         text-align: left; 
+    }
+    a {
         position: relative;
     }
-    a:hover .tip {
-        visibility: visible;
+    a:hover .tip, a:hover img {
+        display: inherit;
+    }
+    img {
+        background: white;
+        top: -100px;
     }
     .tip {
-        z-index: 1;
-        left: 12px;
-        top: 22px;
-        visibility: hidden;
         font-size: small;
-        background: yellow;
         color: navy;
+        background: yellow;
+        top: 22px;
         text-align: center;
         padding: 5px 5px;
         border: 1px solid navy;
+    }
+    img, .tip {
+        display: none;
+        z-index: 1;
+        left: 12px;
+        width: 120px;
         position: absolute;
+        box-shadow: 0 4px 5px 3px rgba(0, 0, 0, 0.2);
     }
   </style>
 </head>
@@ -225,7 +235,7 @@
     <td>
     <a href="https://osmanonurcan.github.io/jsprojects/">OSMAN ONURCAN</a>
     </td><td>
-    <a href="https://osmanonurcan.github.io/jsprojects/termProject/index.html">Ciftleri Bulma
+    <a href="https://osmanonurcan.github.io/jsprojects/termProject/index.html">Çiftleri Bulma
     <span class="tip">Ciftleri Bulma</span></a>
   </td>
   </tr>
@@ -247,7 +257,8 @@
   </tr>
   <tr><th> 24</th> 
    <td>   
-   <a href="https://itssamedozkan.github.io/JSProjects/index.html">İSMAİL TAHA ÖZKAN</a> 
+   <a href="https://itssamedozkan.github.io/JSProjects/index.html">İSMAİL TAHA ÖZKAN
+      <img src="https://avatars1.githubusercontent.com/u/48597531"></a> 
     </td><td>
       <a href="https://itssamedozkan.github.io/JSProjects/HomeWorks/sorting.html">Sorting
       <span class="tip">Sorting Algoritması Görsellestirme</span></a>
@@ -312,11 +323,46 @@
 </table>
 
 <p>(C) 2019
-<a href="http://mf.fatihsultan.edu.tr/"   target="NewTab">FSMVÜ</a> &emsp;
-<a href="https://github.com/maeyler/305/" target="NewTab">GitHub</a> &emsp;
-<a href="index.html">Readme</a>
+<a href="http://mf.fatihsultan.edu.tr/"   target="NewTab">FSMVÜ
+  <img src="images/FSMVÜ.jpg"></a> &emsp;
+<a href="https://github.com/maeyler/305/" target="NewTab">GitHub
+  <img src="images/GitHub-Mark-120px-plus.png"></a> &emsp;
+<a href="index.html">Readme
+  <img src="images/icon192.png"></a> &emsp;
+<a href="https://maeyler.github.io/" target="NewTab">Instructor
+  <img src="https://avatars0.githubusercontent.com/u/14038292"></a>
 </p>
 
+<script>
+"use strict";
+var eltShown = null
+function doTouch1(evt) {
+    if (eltShown) {
+       eltShown.style.display = "none"
+       eltShown = null
+    }
+    let t = evt.target, n = t.tagName
+    console.log("StartTouch", n)
+    if (n == "A" && t.childElementCount > 0) {
+        eltShown = t.children[0]
+        eltShown.style.display = "inherit"
+    } else if (n == "IMG" || n == "SPAN") {
+        //evt.preventDefault()
+        t.parentElement.click()
+    }
+}
+function doTouch2(evt) {
+    let t = evt.target, n = t.tagName
+    console.log("End Touch", n)
+    if (n == "A" && t.childElementCount > 0) {
+    //ignore click on <a> tag with children
+        evt.preventDefault()
+    }
+}
+for (let e of document.querySelectorAll('a')) {
+    e.ontouchstart = doTouch1; e.ontouchend = doTouch2
+}
+</script>
 
 </body>
 </html>
