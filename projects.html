@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
-    <meta name="theme-color" content="pink" />
+    <meta name="theme-color" content="#ffa" />
     <meta name="author" content="M A Eyler, Istanbul, 2019" />
     <meta name="description" content="BLM305 FSMV University" />
     <link rel="icon" href="images/icon192.png">
@@ -12,11 +12,12 @@
   <style>
     body {
         font: 15px sans-serif;
+        background: #ffa;
         margin: 12px; 
     }
     table {
         width: 450px;
-        border-collapse: collapse; 
+        border-spacing: 5px;
     }
     th { 
         color: blue; 
@@ -24,19 +25,26 @@
     }
     td { 
         width: 47%;
-        border: 1px solid blue; 
+        background: #def;
+        border-radius: 10px; 
         padding: 5px 5px; 
         text-align: left; 
+        position: relative;
     }
-    a:hover  .tip { visibility: visible; }
-    th:hover .tip { visibility: visible; }
+    a:hover .tip {
+        visibility: visible;
+    }
     .tip {
+        z-index: 1;
+        left: 12px;
+        top: 22px;
         visibility: hidden;
         font-size: small;
-        background: brown;
-        color: white;
+        background: yellow;
+        color: navy;
         text-align: center;
         padding: 5px 5px;
+        border: 1px solid navy;
         position: absolute;
     }
   </style>
@@ -303,11 +311,10 @@
   </tr>
 </table>
 
-<p>(C) 2019 FSMVÜ &emsp;
-<a href="https://github.com/maeyler/305/">GitHub
-    <span class="tip">Public repository</span></a> &emsp;
-<a href="index.html">Readme
-    <span class="tip">Course information</span></a>
+<p>(C) 2019
+<a href="http://mf.fatihsultan.edu.tr/"   target="NewTab">FSMVÜ</a> &emsp;
+<a href="https://github.com/maeyler/305/" target="NewTab">GitHub</a> &emsp;
+<a href="index.html">Readme</a>
 </p>
 
 
