@@ -13,12 +13,12 @@
     body {
         margin: 0;
     }
-    div{
+    div, canvas {
         display: inline-block;
-        overflow-x: hidden;
     }
     #color {
         display: block;
+        background: #bbb;
         font: 14px arial, sans-serif;
         text-align: center;
         padding: 16px;
@@ -29,7 +29,7 @@
 <body>
 <div>
   <canvas id="canvas"></canvas>
-  <div id=color></div>
+  <span id=color>{x,y} {R,G,B}</span>
 </div>
 <p></p>
 <div id=sss>
@@ -71,7 +71,6 @@ function pick(evt) {
   //color.innerText = 'xy('+x+', '+y+')  '+rgb;
   color.innerText = '{x:'+x+', y:'+y+'}  '+col;
 }
-canvas.addEventListener('mousemove', pick);
 
 class Graph extends Menu {
   constructor() {
@@ -115,6 +114,7 @@ function init() {
     MENU = new Graph(); //global
     display(MENU); display(cx); display(img); display(MENU)
 }
+    canvas.addEventListener('mousemove', pick);
     try {
         inspect(sss, init); //makes the table
         inp.value = "";

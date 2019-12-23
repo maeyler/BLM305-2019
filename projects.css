@@ -1,0 +1,52 @@
+body {
+    font: 15px sans-serif;
+    background: #ffa;
+    margin: 12px; 
+}
+table {
+    width: 450px;
+    border-spacing: 5px;
+}
+th { 
+    color: blue; 
+    padding: 5px 5px; 
+}
+td { 
+    width: 47%;
+    background: #def;
+    border-radius: 10px; 
+    padding: 5px 5px; 
+    text-align: left; 
+}
+a {
+    position: relative;
+}
+a:hover {
+    color: yellow;
+    background: navy;
+}
+a:hover .tip, a:hover img {
+    display: inherit;
+}
+img {
+    background: white;
+    top: -100px;
+}
+.tip {
+    font-size: small;
+    color: navy;
+    background: yellow;
+    top: 22px;
+    text-align: center;
+    padding: 5px 5px;
+    border: 1px solid navy;
+}
+img, .tip {
+    display: none;
+    z-index: 1;
+    left: 55px;
+    width: 120px;
+    position: absolute;
+    box-shadow: 0 4px 5px 3px rgba(0, 0, 0, 0.2);
+}
+
