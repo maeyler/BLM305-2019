@@ -18,6 +18,9 @@ td {
     padding: 5px 5px; 
     text-align: left; 
 }
+td:hover {
+    background: navy;
+}
 a {
     position: relative;
 }
