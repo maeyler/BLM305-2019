@@ -7,11 +7,14 @@
           rel="stylesheet" media="all">
     <script src="https://maeyler.github.io/JS/sss/inspector.js"></script>
     <link rel="icon" href="../images/icon192.png">
-    <title>Graphics Inspector </title>
+    <title>Image Inspector </title>
 
   <style>
     body {
         margin: 0;
+    }
+    p {
+        margin: 1em;
     }
     div, canvas {
         display: inline-block;
@@ -35,23 +38,27 @@
 <div id=sss>
 </div>
 
+<p>Ref: <a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Pixel_manipulation_with_canvas" 
+   target=NewTab>Pixel manipulation</a>
+</p>
+
 <script>
 "use strict";
-//Ref: https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Pixel_manipulation_with_canvas
 const cx = canvas.getContext('2d');
 const img = new Image();
 img.style.display = 'none';
 img.crossOrigin = 'anonymous';
-img.src = "https://avatars2.githubusercontent.com/u/36419031";
-//'https://avatars1.githubusercontent.com/u/14038292';
+//img.src = "https://avatars2.githubusercontent.com/u/36419031";
+img.onload = start;
+
 function start() {
   canvas.width = img.width
   canvas.height = img.height
   cx.drawImage(img, 0, 0)
   MENU.W = canvas.width
   MENU.H = canvas.height
+  display(MENU)
 }
-img.onload = start;
 function pick(evt) {
   let x = evt.layerX, y = evt.layerY;
   let rgb, avg, col;
@@ -78,11 +85,9 @@ class Graph extends Menu {
     this.canvas = canvas
     this.context = cx
     this.image = img
-    this.W = canvas.width
-    this.H = canvas.height
   }
   loadImage(url) {
-    img.src = url
+    img.src = url; console.log(url, "loaded")
   }
   invert() {
     let id = this.context.getImageData(0, 0, this.W, this.H);
@@ -112,11 +117,12 @@ class Graph extends Menu {
 
 function init() {
     MENU = new Graph(); //global
-    display(MENU); display(cx); display(img); display(MENU)
+    display(MENU); display(cx); display(img);
+    MENU.loadImage("https://avatars2.githubusercontent.com/u/36419031")
 }
     canvas.addEventListener('mousemove', pick);
     try {
-        inspect(sss, init); //makes the table
+        inspect(sss, init); //makes Inspector table
         inp.value = "";
     } catch(e) {
         reportError(e);
