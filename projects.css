@@ -21,12 +21,11 @@ td {
 td:hover {
     background: navy;
 }
+td:hover a {
+    color: yellow;
+}
 a {
     position: relative;
-}
-a:hover {
-    color: yellow;
-    background: navy;
 }
 a:hover .tip, a:hover img {
     display: inherit;

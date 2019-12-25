@@ -300,7 +300,7 @@
 var eltShown = null
 function doTouch1(evt) {
     if (eltShown) {
-       eltShown.style.display = "none"
+       eltShown.style.display = ""
        eltShown = null
     }
     let t = evt.target, n = t.tagName
@@ -315,7 +315,7 @@ function doTouch1(evt) {
 }
 function doTouch2(evt) {
     let t = evt.target, n = t.tagName
-    console.log("End Touch", n)
+    //console.log("End Touch", n)
     if (n == "A" && t.childElementCount > 0) {
     //ignore click on <a> tag with children
         evt.preventDefault()
