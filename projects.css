@@ -26,6 +26,8 @@ td:hover a {
 }
 a {
     position: relative;
+    /* Batuhan Baştürk */
+    text-decoration:none;
 }
 a:hover .tip, a:hover img {
     display: inherit;
