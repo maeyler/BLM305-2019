@@ -1,8 +1,10 @@
 {
   "name": "BLM305",
+  "short_name": "BLM305",
   "start_url": "/305/",
   "display": "standalone",
-  "background_color": "pink",
+  "background_color": "#ffa",
+  "theme-color": "#ffa",
   "icons": [
     {
       "src": "images/icon192.png",
