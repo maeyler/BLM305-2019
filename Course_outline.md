@@ -30,7 +30,7 @@
 **Grading**
 
 Midterm	20% <br>	
-Quiz	10 <br>	
+2xQuiz	10 <br>	
 4xHW	10 <br>	
 10xCW	10 <br>	
 Project	15 <br>	
